@@ -33,6 +33,8 @@ ENV PKG_CONFIG_PATH $LINUXBREWHOME/lib64/pkgconfig:$LINUXBREWHOME/lib/pkgconfig:
 
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)" \
+  && curl -fsSL https://raw.githubusercontent.com/marsbible/linuxbrew-core/fbthrift/Formula/gflags.rb -o /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/gflags.rb \
+  && curl -fsSL https://raw.githubusercontent.com/marsbible/linuxbrew-core/fbthrift/Formula/glog.rb -o /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/glog.rb \  
   && curl -fsSL https://raw.githubusercontent.com/marsbible/linuxbrew-core/folly-fix/Formula/double-conversion.rb -o /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/double-conversion.rb \
   && curl -fsSL https://raw.githubusercontent.com/marsbible/linuxbrew-core/folly-fix/Formula/folly.rb -o /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/folly.rb \
   && brew install folly \
