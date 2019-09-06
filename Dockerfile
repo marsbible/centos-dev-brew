@@ -5,7 +5,7 @@ MAINTAINER kevin ma <redshift@outlook.com>
 RUN yum -y update \
  && yum -y group install "Development Tools" \
  && localedef -c -f UTF-8 -i en_US en_US.UTF-8 \
- && yum -y install sudo jemalloc openssl wget file unzip git vim curl \
+ && yum -y install sudo openssl wget file unzip git vim curl \
  && yum -y clean all \
  && useradd --create-home --shell /bin/bash linuxbrew -G wheel \
  && echo "linuxbrew:linuxbrew" | chpasswd \
@@ -37,6 +37,7 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/mast
   && curl -fsSL https://raw.githubusercontent.com/marsbible/linuxbrew-core/fbthrift/Formula/glog.rb -o /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/glog.rb \  
   && curl -fsSL https://raw.githubusercontent.com/marsbible/linuxbrew-core/folly-fix/Formula/double-conversion.rb -o /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/double-conversion.rb \
   && curl -fsSL https://raw.githubusercontent.com/marsbible/linuxbrew-core/folly-fix/Formula/folly.rb -o /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/folly.rb \
+  && brew install jemalloc \
   && brew install folly \
   && cd /home/linuxbrew/.linuxbrew/Cellar/boost/1.70.0 \
   && git apply --exclude test/* /home/linuxbrew/68.patch
